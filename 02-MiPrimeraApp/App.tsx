@@ -10,7 +10,7 @@ import Flex from "./src/screens/Flex.screen";
 const App = () => {
   return (
     <>
-      <SafeAreaView style={{flex: 1}}>
+      <SafeAreaView style={{flex: 1,}}>
         {/* <ContadorScreen /> */}
         {/* <Position /> */}
         <Flex />
