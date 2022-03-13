@@ -26,13 +26,12 @@ const Calculadora = () => {
       } else if (numeroTxt !== '0' && !numero.includes('.')) {
         //evaluar si es diferente de 0 y no tiene punto
         setNumero(numeroTxt);
-      } else if( numeroTxt === '0' && !numero.includes('.')){
+      } else if (numeroTxt === '0' && !numero.includes('.')) {
         //evitar el 000.0
-        setNumero( numero )
-      }else{
-        setNumero( numero + numeroTxt)
+        setNumero(numero)
+      } else {
+        setNumero(numero + numeroTxt)
       }
-
     } else {
       setNumero(numero + numeroTxt)
     }
@@ -43,6 +42,15 @@ const Calculadora = () => {
       setNumero(numero.replace('-', ''));
     } else {
       setNumero('-' + numero);
+    }
+  }
+
+  const btnDelete = () => {
+    let aux = numero.length;
+    if(numero.length < 2 || (numero.includes('-') && aux <= 2)){
+      setNumero('0')
+    }else{
+      setNumero( numero.substring(0, aux-1));
     }
   }
 
@@ -60,7 +68,7 @@ const Calculadora = () => {
       <View style={styles.fila}>
         <BotonCalculadora texto='C' color='#9B9B9B' handleClick={limpiar} />
         <BotonCalculadora texto='+/-' color='#9B9B9B' handleClick={positivoNegativo} />
-        <BotonCalculadora texto='del' color='#9B9B9B' handleClick={limpiar} />
+        <BotonCalculadora texto='del' color='#9B9B9B' handleClick={btnDelete} />
         <BotonCalculadora texto='/' color='#FF9427' handleClick={limpiar} />
       </View>
 
@@ -86,7 +94,7 @@ const Calculadora = () => {
       </View>
 
       <View style={styles.fila}>
-        <BotonCalculadora texto='0' ancho handleClick={armarNumero} />
+        <BotonCalculadora texto='0' handleClick={armarNumero} ancho />
         <BotonCalculadora texto='.' handleClick={armarNumero} />
         <BotonCalculadora texto='=' color='#FF9427' handleClick={limpiar} />
       </View>
