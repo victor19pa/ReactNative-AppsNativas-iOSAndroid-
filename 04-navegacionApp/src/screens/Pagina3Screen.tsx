@@ -8,7 +8,7 @@ interface Props extends StackScreenProps<any, any> { };
 const Pagina3Screen = ({ navigation }: Props) => {
   return (
     <View style={styles.globalMargin}>
-      <Text style={{ color: 'black' }}>Pagina3Screen</Text>
+      <Text style={styles.title}>Pagina3Screen</Text>
 
       <Button
         title='Regresar'

@@ -9,7 +9,7 @@ const Pagina1Screen = ({ navigation }: Props) => {
 
   return (
     <View style={styles.globalMargin}>
-      <Text style={{ color: 'black' }}>Pagina1Screen</Text>
+      <Text style={styles.title}>Pagina1Screen</Text>
 
       <Button
         title='Ir a Pagina 2'

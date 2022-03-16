@@ -1,5 +1,5 @@
 import { useNavigation } from '@react-navigation/native'
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Button, Text, View } from 'react-native'
 import styles from '../theme/appTheme'
 
@@ -7,9 +7,16 @@ const Pagina2Screen = () => {
 
   const navigator = useNavigation();
 
+  useEffect(() => {
+    navigator.setOptions({
+      title: 'Hola mundo', //tiene mas peso
+      headerBackTitle: 'Back' //iOS
+    })
+  }, [])
+  
   return (
     <View style={styles.globalMargin}>
-      <Text style={{ color: 'black' }}>Pagina 2 Screen</Text>
+      <Text style={styles.title}>Pagina 2 Screen</Text>
 
       <Button
         title='Ir a pagina 3'
