@@ -21,7 +21,29 @@ const styles = StyleSheet.create({
     marginVertical: 10
   },
   btnGrandeTxt:{
-    color: 'white'
+    color: 'white',
+    fontSize: 18,
+    fontWeight: 'bold'
+  },
+  avatarContainer:{
+    alignItems: 'center',
+    marginTop: 20
+  },
+  avatar: {
+    width: 150,
+    height: 150,
+    borderRadius: 100
+  },
+  menuContainer: {
+    marginVertical: 30,
+    marginHorizontal: 50,
+  },
+  menuBoton:{
+    marginVertical: 10,
+  },
+  menuTexto:{
+    color: 'purple',
+    fontSize: 25,
   }
 });
 
