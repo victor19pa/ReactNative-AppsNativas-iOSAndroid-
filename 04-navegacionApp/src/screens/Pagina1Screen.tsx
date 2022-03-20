@@ -8,16 +8,16 @@ interface Props extends DrawerScreenProps<any, any> { };
 
 const Pagina1Screen = ({ navigation }: Props) => {
 
-  // useEffect(() => {
-  //   navigation.setOptions({
-  //     headerLeft: () => (
-  //       <Button 
-  //         title='Menu'
-  //         onPress={ () => navigation.toggleDrawer()}
-  //       />
-  //     )
-  //   })
-  // }, [])
+  useEffect(() => {
+    navigation.setOptions({
+      headerLeft: () => (
+        <Button 
+          title='-Menu-'
+          onPress={ () => navigation.toggleDrawer()}
+        />
+      )
+    })
+  }, [])
   
 
   return (

@@ -4,7 +4,7 @@ import { View, Text } from 'react-native'
 const SettingsScreen = () => {
   return (
     <View>
-      <Text>Settings Screen</Text>
+      <Text style={{color: 'blue'}}>Settings Screen</Text>
     </View>
   )
 }

@@ -16,24 +16,26 @@ export type RootStackParams = {
 
 const Stack = createStackNavigator<RootStackParams>();
 
+const screenOptiones = {
+  headerStyle: {
+    elevation: 0,
+    shadowColor: 'transparent',
+  },
+  cardStyle: {
+    backgroundColor: 'white',
+  }
+}
+
 const StackNavigator = () => {
   return (
     <Stack.Navigator
       //initialRouteName='Pagina2Screen'
-      screenOptions={{
-        headerStyle: {
-          elevation: 0, //en android
-          shadowColor: 'transparent'
-        },
-        cardStyle: {
-          backgroundColor: 'white',
-        }
-      }}
+      screenOptions={screenOptiones}
     >
       <Stack.Screen name="Pagina1Screen" options={{ title: 'Página 1' }} component={Pagina1Screen} />
       <Stack.Screen name="Pagina2Screen" options={{ title: 'Página 2' }} component={Pagina2Screen} />
       <Stack.Screen name="Pagina3Screen" options={{ title: 'Página 3' }} component={Pagina3Screen} />
-      <Stack.Screen name="PersonaScreen" options={{ title: 'Persona' }} component={PersonaScreen} />
+      <Stack.Screen name="PersonaScreen" component={PersonaScreen} />
     </Stack.Navigator>
   );
 }
