@@ -6,9 +6,11 @@ const styles = StyleSheet.create({
     marginHorizontal: 20,
   },
   title:{
-    fontSize: 30,
+    fontSize: 18,
     color: 'black',
     marginBottom: 10,
+    marginVertical: 20,
+    
   },
   btnGrande:{
     width: 100,

@@ -23,7 +23,8 @@ const screenOptiones = {
   },
   cardStyle: {
     backgroundColor: 'white',
-  }
+  },
+  headerShown:false
 }
 
 const StackNavigator = () => {

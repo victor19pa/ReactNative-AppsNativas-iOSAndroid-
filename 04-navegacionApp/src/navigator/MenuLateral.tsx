@@ -1,8 +1,8 @@
 import React from 'react';
-import { createDrawerNavigator, DrawerContentComponentProps } from '@react-navigation/drawer';
+import { createDrawerNavigator } from '@react-navigation/drawer';
 import SettingsScreen from '../screens/SettingsScreen';
 import StackNavigator from './StackNavigator';
-import { Text, useWindowDimensions } from 'react-native';
+import { useWindowDimensions } from 'react-native';
 import InternalMenu from '../components/InternalMenu';
 
 const Drawer = createDrawerNavigator();
