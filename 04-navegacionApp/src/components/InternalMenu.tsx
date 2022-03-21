@@ -21,9 +21,9 @@ const InternalMenu = ( props : DrawerContentComponentProps) => {
       <View style={styles.menuContainer}>
         <TouchableOpacity 
           style={styles.menuBoton}
-          onPress={ () => navigation.navigate('StackNavigator')}
+          onPress={ () => navigation.navigate('Tabs')}
         >
-          <Text style={styles.menuTexto}>Navegacion</Text>
+          <Text style={styles.menuTexto}>Tabs</Text>
         </TouchableOpacity>
         <TouchableOpacity 
           style={styles.menuBoton}

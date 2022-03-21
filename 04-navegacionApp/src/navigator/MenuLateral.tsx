@@ -4,6 +4,7 @@ import SettingsScreen from '../screens/SettingsScreen';
 import StackNavigator from './StackNavigator';
 import { useWindowDimensions } from 'react-native';
 import InternalMenu from '../components/InternalMenu';
+import Tabs from './Tabs';
 
 const Drawer = createDrawerNavigator();
 
@@ -19,7 +20,7 @@ function MenuLateral() {
         headerShown: false, 
       }}      
     >
-      <Drawer.Screen name="StackNavigator" component={StackNavigator} />
+      <Drawer.Screen name="Tabs" component={Tabs} />
       <Drawer.Screen name="SettingsScreen" component={SettingsScreen} />
     </Drawer.Navigator>
   );
