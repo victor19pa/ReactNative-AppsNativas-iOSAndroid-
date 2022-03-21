@@ -15,17 +15,7 @@ const Tabs = () => {
     sceneContainerStyle={{
       backgroundColor: 'white',
     }}
-    screenOptions={{
-      tabBarActiveTintColor: colores.primary,
-      tabBarStyle: {
-        borderTopColor: colores.primary,
-        borderTopWidth: 0,
-        elevation: 0
-      },
-      tabBarLabelStyle:{
-        fontSize: 15
-      },
-    }}
+    
     screenOptions={({route}) => ({
       tabBarIcon: ({color, focused, size}) => {
         let iconName:string = ''
@@ -45,7 +35,16 @@ const Tabs = () => {
         return (
           <Text style={{color}}>{iconName}</Text>
         )
-      }
+      },
+      tabBarActiveTintColor: colores.primary,
+      tabBarStyle: {
+        borderTopColor: colores.primary,
+        borderTopWidth: 0,
+        elevation: 0
+      },
+      tabBarLabelStyle:{
+        fontSize: 15
+      },
     })}
     >
       <Tab.Screen name="Tab1Screen" options={{title: 'Tab 1',}} component={Tab1Screen} />
