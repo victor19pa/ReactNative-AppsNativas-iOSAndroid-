@@ -10,8 +10,8 @@ export interface AuthState {
 //estado inicial
 export const authInitialState: AuthState = {
   isLoggedIn: false,
-  username: '',
-  favoriteIcon: '',
+  username: undefined,
+  favoriteIcon: undefined,
 }
 
 //lo usaremos para decirle a react como luce y que exporta el context
@@ -23,7 +23,7 @@ export interface AuthContextProps {
 //crear context
 export const AuthContext = createContext({} as AuthContextProps)
 
-//compoente proveedor del estado
+//compoente proveedor del estado - high order component
 export const AuthProvider = ({ children }: any) => {
   return (
     <AuthContext.Provider
