@@ -2,11 +2,11 @@ import React from 'react'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 import Tab1Screen from '../screens/Tab1Screen';
-import Tab2Screen from '../screens/Tab2Screen';
 import StackNavigator from './StackNavigator';
 import { colores } from '../theme/appTheme';
 import { Platform, Text } from 'react-native';
 import { TopTabNavigator } from './TopTabNavigator';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 export const Tabs = () => {
 
@@ -30,19 +30,19 @@ const TabsAndroid = () => {
           let iconName: string = ''
           switch (route.name) {
             case 'Tab1Screen':
-              iconName = 'T1'
+              iconName = 'basket-outline'
               break;
 
-            case 'Tab2Screen':
-              iconName = 'T2'
+            case 'TopTabNavigator':
+              iconName = 'camera-outline'
               break;
 
             case 'StackNavigator':
-              iconName = 'ST'
+              iconName = 'checkmark-outline'
               break;
           }
           return (
-            <Text style={{ color }}>{iconName}</Text>
+            <Icon name={iconName} size={23} color='white' />
           )
         },
       })}

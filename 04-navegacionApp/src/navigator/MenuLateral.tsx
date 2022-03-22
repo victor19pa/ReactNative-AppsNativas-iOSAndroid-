@@ -6,6 +6,7 @@ import { useWindowDimensions } from 'react-native';
 import InternalMenu from '../components/InternalMenu';
 import { Tabs } from './Tabs';
 
+
 const Drawer = createDrawerNavigator();
 
 function MenuLateral() {

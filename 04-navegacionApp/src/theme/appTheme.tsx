@@ -50,6 +50,12 @@ const styles = StyleSheet.create({
   menuTexto:{
     color: 'purple',
     fontSize: 25,
+  },
+  menuLateral:{
+    flexDirection: 'row'
+  },
+  iconMenuLateral:{
+    marginRight: 5,
   }
 });
 
