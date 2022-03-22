@@ -6,6 +6,7 @@ import Tab2Screen from '../screens/Tab2Screen';
 import StackNavigator from './StackNavigator';
 import { colores } from '../theme/appTheme';
 import { Platform, Text } from 'react-native';
+import { TopTabNavigator } from './TopTabNavigator';
 
 export const Tabs = () => {
 
@@ -47,7 +48,7 @@ const TabsAndroid = () => {
       })}
     >
       <BottomTabAndroid.Screen name="Tab1Screen" options={{ title: 'Tab 1', }} component={Tab1Screen} />
-      <BottomTabAndroid.Screen name="Tab2Screen" options={{ title: 'Tab 2' }} component={Tab2Screen} />
+      <BottomTabAndroid.Screen name="TopTabNavigator" options={{ title: 'Tab 2' }} component={TopTabNavigator} />
       <BottomTabAndroid.Screen name="StackNavigator" options={{ title: 'Stack' }} component={StackNavigator} />
     </BottomTabAndroid.Navigator>
   );
@@ -93,7 +94,7 @@ const TabsIOS = () => {
       })}
     >
       <BottomTabbIOS.Screen name="Tab1Screen" options={{ title: 'Tab 1', }} component={Tab1Screen} />
-      <BottomTabbIOS.Screen name="Tab2Screen" options={{ title: 'Tab 2' }} component={Tab2Screen} />
+      <BottomTabbIOS.Screen name="TopTabNavigator" options={{ title: 'Tab 2' }} component={TopTabNavigator} />
       <BottomTabbIOS.Screen name="StackNavigator" options={{ title: 'Stack' }} component={StackNavigator} />
     </BottomTabbIOS.Navigator>
   );
