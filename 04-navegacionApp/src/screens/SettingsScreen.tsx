@@ -10,7 +10,7 @@ const SettingsScreen = () => {
   const context = useContext(AuthContext);
   const { authState } = context;
 
-  console.log(authState);
+  // console.log(authState);
   
   return (
     <View style={{

@@ -1,4 +1,5 @@
-import React, { createContext } from "react";
+import React, { createContext, useReducer } from "react";
+import { authReducer } from "./authReducer";
 
 //definir como luce
 export interface AuthState {
@@ -25,6 +26,9 @@ export const AuthContext = createContext({} as AuthContextProps)
 
 //compoente proveedor del estado - high order component
 export const AuthProvider = ({ children }: any) => {
+
+  const [authState, dispatch] = useReducer(authReducer, authInitialState)
+
   return (
     <AuthContext.Provider
       value={{
