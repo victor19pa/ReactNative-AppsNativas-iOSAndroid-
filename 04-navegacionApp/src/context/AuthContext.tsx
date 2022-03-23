@@ -18,7 +18,7 @@ export const authInitialState: AuthState = {
 //lo usaremos para decirle a react como luce y que exporta el context
 export interface AuthContextProps {
   authState: AuthState;
-  signIn(): () => void;
+  signIn: () => void;
 }
 
 //crear context
@@ -33,10 +33,10 @@ export const AuthProvider = ({ children }: any) => {
     dispatch({ type: 'signIn'}) 
   }
   return (
-    <AuthContext.Provider
+    <AuthContext.Provider 
       value={{
-        authState: authInitialState,
-        signIn: () => Object,
+        authState,
+        signIn
       }}
     >
       {children}
