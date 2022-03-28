@@ -17,7 +17,7 @@ const AlbumsScreen = () => {
           title='Log Out'
           onPress={logout}
         />
-      ):(
+      ) : (
         <Button
           title='Sign in'
           onPress={signIn}

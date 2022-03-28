@@ -1,34 +1,34 @@
 import { AuthState } from "./AuthContext";
 
-type AuthAction = 
-  | { type : 'signIn' }
-  | { type : 'logout'}
-  | { type : 'changeFavIcon', payload: string}
-  | { type : 'changeUsername', payload: string}
+type AuthAction =
+  | { type: 'signIn' }
+  | { type: 'logout' }
+  | { type: 'changeFavIcon', payload: string }
+  | { type: 'changeUsername', payload: string }
 
 export const authReducer = (state: AuthState, action: AuthAction): AuthState => {
 
   switch (action.type) {
     case 'signIn':
-      return{
+      return {
         ...state,
         isLoggedIn: true,
         username: 'no-username-yet'
       }
     case 'changeFavIcon':
-      return{
+      return {
         ...state,
         favoriteIcon: action.payload
       }
     case 'logout':
-      return{
+      return {
         ...state,
         isLoggedIn: false,
         username: undefined,
         favoriteIcon: undefined
       }
     case 'changeUsername':
-      return{
+      return {
         ...state,
         username: action.payload
       }

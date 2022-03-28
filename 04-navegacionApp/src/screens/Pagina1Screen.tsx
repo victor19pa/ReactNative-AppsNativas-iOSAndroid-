@@ -13,14 +13,13 @@ const Pagina1Screen = ({ navigation }: Props) => {
     navigation.setOptions({
       headerLeft: () => (
         <TouchableOpacity
-        onPress={ () => navigation.toggleDrawer()}
+          onPress={() => navigation.toggleDrawer()}
         >
-          <Icon name='menu-outline' size={35} color={colores.primary} style={styles.globalMargin}/>
+          <Icon name='menu-outline' size={35} color={colores.primary} style={styles.globalMargin} />
         </TouchableOpacity>
       )
     })
   }, [])
-
 
   return (
     <View style={styles.globalMargin}>

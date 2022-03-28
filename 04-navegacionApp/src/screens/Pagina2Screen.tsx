@@ -13,7 +13,7 @@ const Pagina2Screen = () => {
       headerBackTitle: 'Back' //iOS
     })
   }, [])
-  
+
   return (
     <View style={styles.globalMargin}>
       <Text style={styles.title}>Pagina 2 Screen</Text>

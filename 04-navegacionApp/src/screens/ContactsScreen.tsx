@@ -5,7 +5,7 @@ import styles from '../theme/appTheme'
 
 const ContactsScreen = () => {
 
-  const { signIn, authState ,logout } = useContext(AuthContext)
+  const { signIn, authState, logout } = useContext(AuthContext)
   const { isLoggedIn } = authState;
 
   return (

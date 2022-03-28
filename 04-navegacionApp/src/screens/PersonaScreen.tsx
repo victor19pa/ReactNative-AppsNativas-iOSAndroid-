@@ -14,9 +14,9 @@ import styles from '../theme/appTheme'
 // }
 
 //optimo
-interface Props extends StackScreenProps<RootStackParams,'PersonaScreen'>{};
+interface Props extends StackScreenProps<RootStackParams, 'PersonaScreen'> { };
 
-const PersonaScreen = ( { route, navigation }: Props) => {
+const PersonaScreen = ({ route, navigation }: Props) => {
   //NO OPTIMA
   // const params  = route.params;
   // useEffect(() => {
@@ -24,7 +24,7 @@ const PersonaScreen = ( { route, navigation }: Props) => {
   //     title: params!.nombre 
   //   })
   // }, [])
-  
+
   //opcional
   //const params = route.params as RouteParams;
   const params = route.params
@@ -42,12 +42,9 @@ const PersonaScreen = ( { route, navigation }: Props) => {
   }, [])
 
   useEffect(() => {
-    changeUsername( params.nombre);
+    changeUsername(params.nombre);
   }, [])
-  
-  
-  
-  
+
   return (
     <View style={styles.globalMargin}>
       <Text style={styles.title}>

@@ -33,25 +33,25 @@ export const AuthProvider = ({ children }: any) => {
   const [authState, dispatch] = useReducer(authReducer, authInitialState)
 
   const signIn = () => {
-    dispatch({ type: 'signIn'}) 
+    dispatch({ type: 'signIn' })
   }
   const logout = () => {
-    dispatch({ type: 'logout'})
+    dispatch({ type: 'logout' })
   }
-  const changeFavoriteIcon = ( iconName : string) => {
-    dispatch({ 
-      type: 'changeFavIcon', 
+  const changeFavoriteIcon = (iconName: string) => {
+    dispatch({
+      type: 'changeFavIcon',
       payload: iconName
     })
   }
-  const changeUsername = ( username : string ) => {
+  const changeUsername = (username: string) => {
     dispatch({
       type: 'changeUsername',
       payload: username
     })
   }
   return (
-    <AuthContext.Provider 
+    <AuthContext.Provider
       value={{
         authState,
         signIn,
