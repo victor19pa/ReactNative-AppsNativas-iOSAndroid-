@@ -21,7 +21,7 @@ const SettingsScreen = () => {
     >
       <Text style={{ color: 'blue' }}>Settings Screen</Text>
 
-      <Text> {JSON.stringify(authState, null, 4)}</Text>
+      <Text style={{ color: 'red' }}> {JSON.stringify(authState, null, 4)}</Text>
 
       {
         authState.favoriteIcon && (
