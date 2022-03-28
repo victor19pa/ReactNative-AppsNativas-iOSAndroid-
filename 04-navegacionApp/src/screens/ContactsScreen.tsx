@@ -5,24 +5,24 @@ import styles from '../theme/appTheme'
 
 const ContactsScreen = () => {
 
-  const { signIn, authState } = useContext(AuthContext)
+  const { signIn, authState ,logout } = useContext(AuthContext)
   const { isLoggedIn } = authState;
-  
+
   return (
     <View style={styles.globalMargin}>
       <Text style={styles.title}>
         Contacts Screen
       </Text>
-      { !isLoggedIn ? (
+      {!isLoggedIn ? (
         <Button
-        title='Sign in'
-        onPress={signIn}
-      />
-      ):(
+          title='Sign in'
+          onPress={signIn}
+        />
+      ) : (
         <Button
-        title='Log Out'
-        onPress={() => console.log('Log out')}
-      />
+          title='Log Out'
+          onPress={logout}
+        />
       )}
     </View>
   )
