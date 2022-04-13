@@ -1,6 +1,7 @@
 import React from 'react'
 import { FlatList, Text, View } from 'react-native'
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { menuItems } from '../common/menuItemsFlat';
+import { ListHeader } from '../components/atoms';
 import { styles } from '../theme/appTheme';
 
 interface MenuItem {
@@ -8,34 +9,13 @@ interface MenuItem {
   icon: string;
   components: string;
 }
-const menuItems = [
-  {
-    name: 'Animation 101',
-    icon: 'cube-outline',
-    components: 'Animation101Screen'
-  },
-  {
-    name: 'Animation 102',
-    icon: 'star-outline',
-    components: 'Animation102Screen'
-  }
-]
-const Home = () => {
 
-  const { top } = useSafeAreaInsets();
+const Home = () => {
 
   const renderMenuItem = (menuItem: MenuItem) => {
     return (
       <View>
         <Text style={{ color: 'black' }}>{menuItem.name} - {menuItem.icon}</Text>
-      </View>
-    )
-  }
-
-  const renderListHeader = () => {
-    return (
-      <View style={{ marginTop: top + 20, marginBottom: 20 }}>
-        <Text style={styles.title}>Opciones de menu</Text>
       </View>
     )
   }
@@ -52,7 +32,7 @@ const Home = () => {
         data={menuItems}
         renderItem={({ item }) => renderMenuItem(item)}
         keyExtractor={item => item.name}
-        ListHeaderComponent={renderListHeader}
+        ListHeaderComponent={<ListHeader title='Opciones de Menu' />}
         ItemSeparatorComponent={itemSeparator}
       />
     </View>
