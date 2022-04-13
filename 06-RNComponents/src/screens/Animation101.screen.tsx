@@ -1,9 +1,9 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import { Animated, Button, StyleSheet, View } from 'react-native'
 import useFade from '../hooks/useFade';
 
 const Animation101 = () => {
-  const { fadeIn, fadeOut, opacityRef } = useFade();
+  const { fadeIn, fadeOut, opacityRef, top } = useFade();
 
   return (
     <View style={styles.container}>
@@ -11,6 +11,9 @@ const Animation101 = () => {
         ...styles.purbleBox,
         marginBottom: 20,
         opacity: opacityRef,
+        transform: [{
+          translateY: top
+        }]
       }}
       />
       <Button
