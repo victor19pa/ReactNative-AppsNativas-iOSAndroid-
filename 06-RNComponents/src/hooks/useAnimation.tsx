@@ -1,9 +1,9 @@
-import React, {useRef} from 'react';
-import {Animated, Easing} from 'react-native';
+import React, { useRef } from 'react';
+import { Animated, Easing } from 'react-native';
 
 const useFade = () => {
   const opacityRef = useRef(new Animated.Value(0.4)).current;
-  const top = useRef(new Animated.Value(-100)).current;
+  const position = useRef(new Animated.Value(0)).current;
 
   const fadeIn = () => {
     Animated.timing(opacityRef, {
@@ -12,12 +12,6 @@ const useFade = () => {
       useNativeDriver: true,
     }).start(() => console.log('animacion termino'));
 
-    Animated.timing(top, {
-      toValue: 0,
-      duration: 800,
-      useNativeDriver: true,
-      easing: Easing.bounce,
-    }).start();
   };
 
   const fadeOut = () => {
@@ -28,11 +22,23 @@ const useFade = () => {
     }).start();
   };
 
+  const startPosition = (initPosition: number, duration: number = 300) => {
+    position.setValue(initPosition);
+
+    Animated.timing(position, {
+      toValue: 0,
+      duration,
+      useNativeDriver: true,
+      // easing: Easing.bounce,
+    }).start();
+  }
+
   return {
     opacityRef,
-    top,
+    position,
     fadeIn,
     fadeOut,
+    startPosition,
   };
 };
 

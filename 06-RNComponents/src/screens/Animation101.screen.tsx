@@ -1,9 +1,9 @@
 import React, { useRef } from 'react'
 import { Animated, Button, StyleSheet, View } from 'react-native'
-import useFade from '../hooks/useFade';
+import useFade from '../hooks/useAnimation';
 
 const Animation101 = () => {
-  const { fadeIn, fadeOut, opacityRef, top } = useFade();
+  const { fadeIn, fadeOut, opacityRef, position, startPosition } = useFade();
 
   return (
     <View style={styles.container}>
@@ -12,13 +12,16 @@ const Animation101 = () => {
         marginBottom: 20,
         opacity: opacityRef,
         transform: [{
-          translateY: top
+          translateY: position
         }]
       }}
       />
       <Button
         title='Fade In'
-        onPress={fadeIn}
+        onPress={() => {
+          fadeIn();
+          startPosition(-100, 700);
+        }}
       />
       <Button
         title='Fade Out'
