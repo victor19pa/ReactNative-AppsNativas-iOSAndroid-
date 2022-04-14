@@ -1,1 +1,1 @@
-export {default as ListHeader} from './listHeader.atom';
+export {default as HeaderTitle} from './HeaderTitle.atom';

@@ -1,7 +1,7 @@
 import React from 'react'
 import { FlatList, View } from 'react-native'
 import { menuItems } from '../common/menuItemsFlat';
-import { ListHeader } from '../components/atoms';
+import { HeaderTitle, } from '../components/atoms';
 import { FlatlistItem } from '../components/organisms';
 import { styles } from '../theme/appTheme';
 
@@ -19,7 +19,7 @@ const Home = () => {
         data={menuItems}
         renderItem={({ item }) => <FlatlistItem menuItem={item} />}
         keyExtractor={item => item.name}
-        ListHeaderComponent={<ListHeader title='Opciones de Menu' />}
+        ListHeaderComponent={<HeaderTitle title='Opciones de Menu' />}
         ItemSeparatorComponent={itemSeparator}
       />
     </View>

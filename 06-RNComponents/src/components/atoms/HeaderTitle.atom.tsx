@@ -9,7 +9,7 @@ interface Props {
 
 const { top } = useSafeAreaInsets();
 
-const listHeader = ({ title }: Props) => {
+const HeaderTitle = ({ title }: Props) => {
   return (
     <View style={{ marginTop: top + 20, marginBottom: 20 }}>
       <Text style={styles.title}>{title}</Text>
@@ -17,4 +17,4 @@ const listHeader = ({ title }: Props) => {
   )
 }
 
-export default listHeader
+export default HeaderTitle;
