@@ -25,6 +25,14 @@ const SwitchScreen = () => {
         <Text style={styles.txtSwitch}>is Active</Text>
         <CustomSwitch isOn={isActive} onChange={(value) => onChange(value, 'isActive')} />
       </View>
+      <View style={styles.rowSwitch}>
+        <Text style={styles.txtSwitch}>is Hungry</Text>
+        <CustomSwitch isOn={isActive} onChange={(value) => onChange(value, 'isHungry')} />
+      </View>
+      <View style={styles.rowSwitch}>
+        <Text style={styles.txtSwitch}>is Happy</Text>
+        <CustomSwitch isOn={isActive} onChange={(value) => onChange(value, 'isHappy')} />
+      </View>
       <Text style={styles.txtSwitch}>
         {JSON.stringify(state, null, 5)}
       </Text>
@@ -35,12 +43,13 @@ const SwitchScreen = () => {
 const styles = StyleSheet.create({
   txtSwitch: {
     fontSize: 25,
-    color: 'black'
+    color: 'black',
   },
   rowSwitch: {
     justifyContent: 'space-between',
     alignItems: 'center',
-    flexDirection: 'row'
+    flexDirection: 'row',
+    marginVertical: 5,
   }
 });
 
