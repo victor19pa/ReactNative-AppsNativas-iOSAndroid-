@@ -1,21 +1,17 @@
-import React, { useState } from 'react'
-import { Keyboard, KeyboardAvoidingView, Platform, ScrollView, StyleSheet, TextInput, TouchableWithoutFeedback, View } from 'react-native'
-import { HeaderTitle } from '../components/atoms'
+import React from 'react'
+import { Keyboard, KeyboardAvoidingView, Platform, ScrollView, StyleSheet, Text, TextInput, TouchableWithoutFeedback, View } from 'react-native'
+import { CustomSwitch, HeaderTitle } from '../components/atoms'
+import { useForm } from '../hooks/useForm'
 import { styles } from '../theme/appTheme'
 
 const TextInputs = () => {
-  const [form, setForm] = useState({
+  const { form, onChange, isSuscribe } = useForm({
     name: '',
     email: '',
     phone: '',
-  })
+    isSuscribe: false,
+  });
 
-  const onChange = (value: string, field: string) => {
-    setForm({
-      ...form,
-      [field]: value
-    })
-  }
   return (
     <KeyboardAvoidingView
       behavior={Platform.OS === "ios" ? "padding" : "height"}
@@ -43,8 +39,6 @@ const TextInputs = () => {
               onChangeText={(value) => onChange(value, 'email')}
               keyboardType='email-address'
             />
-            <HeaderTitle title={JSON.stringify(form, null, 2)} />
-            <HeaderTitle title={JSON.stringify(form, null, 2)} />
             <TextInput
               style={stylesScreen.txtInputStyle}
               placeholder='Ingrese su telefono'
@@ -52,11 +46,17 @@ const TextInputs = () => {
               onChangeText={(value) => onChange(value, 'phone')}
               keyboardType='phone-pad'
             />
+
+            <View style={stylesScreen.rowSwitch}>
+              <Text style={stylesScreen.txtSwitch}>Suscribirme</Text>
+              <CustomSwitch isOn={isSuscribe} onChange={(value) => onChange(value, 'isSuscribe')} />
+            </View>
+
             <HeaderTitle title={JSON.stringify(form, null, 2)} />
           </View>
         </TouchableWithoutFeedback>
       </ScrollView>
-    </KeyboardAvoidingView>
+    </KeyboardAvoidingView >
   )
 }
 const stylesScreen = StyleSheet.create({
@@ -68,6 +68,17 @@ const stylesScreen = StyleSheet.create({
     borderColor: 'rgba(0,0,0,0.3)',
     marginVertical: 10,
     color: 'rgba(0,0,0,0.6)'
+  },
+  txtSwitch: {
+    fontSize: 20,
+    color: 'black',
+  },
+  rowSwitch: {
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    flexDirection: 'row',
+    marginVertical: 5,
+    paddingHorizontal: 8
   }
 });
 
