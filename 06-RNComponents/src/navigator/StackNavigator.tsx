@@ -1,6 +1,6 @@
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
-import { AlertScreen, Animation101, Animation102, Home, Switch, TextInput } from '../screens';
+import { AlertScreen, Animation101, Animation102, Home, PullToRefresh, Switch, TextInput } from '../screens';
 
 const Stack = createStackNavigator();
 
@@ -9,7 +9,10 @@ const StackNavigator = () => {
     <Stack.Navigator
       initialRouteName='Home'
       screenOptions={{
-        headerShown: false
+        headerShown: false,
+        cardStyle: {
+          backgroundColor: 'white'
+        }
       }}
     >
       <Stack.Screen name="Home" component={Home} />
@@ -18,6 +21,7 @@ const StackNavigator = () => {
       <Stack.Screen name="SwitchScreen" component={Switch} />
       <Stack.Screen name="AlertScreen" component={AlertScreen} />
       <Stack.Screen name="TextInputScreen" component={TextInput} />
+      <Stack.Screen name="PullToRefreshScreen" component={PullToRefresh} />
     </Stack.Navigator>
   );
 }
