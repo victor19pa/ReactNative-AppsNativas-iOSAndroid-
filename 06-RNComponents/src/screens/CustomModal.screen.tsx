@@ -22,13 +22,26 @@ const CustomModal = () => {
       >
         <View style={{
           flex: 1,
-          backgroundColor: 'rgba(0,0,0,0.3)'
+          backgroundColor: 'rgba(0,0,0,0.3)',
+          justifyContent: 'center',
+          alignItems: 'center'
         }}>
           <View style={{
-            backgroundColor: 'white'
+            backgroundColor: 'white',
+            height: 200,
+            width: 200,
+            justifyContent: 'center',
+            alignItems: 'center',
+            shadowOffset: {
+              width: 0,
+              height: 10
+            },
+            shadowOpacity: 0.25,
+            elevation: 10,
+            borderRadius: 10
           }}>
-            <HeaderTitle title='Modal' />
-            <Text>Cuerpo del modal</Text>
+            <Text style={{ color: 'black', fontSize: 20, fontWeight: 'bold' }}>Modal</Text>
+            <Text style={{ color: 'black', fontSize: 16, fontWeight: '300', marginBottom: 20 }}>Cuerpo del modal</Text>
             <Button
               title='Salir'
               onPress={() => setIsVisible(false)}
