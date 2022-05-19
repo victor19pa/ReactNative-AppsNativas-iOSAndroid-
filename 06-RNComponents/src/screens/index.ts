@@ -5,3 +5,4 @@ export {default as Switch} from './Switch.screen';
 export {default as AlertScreen} from './Alert.screen';
 export {default as TextInput} from './TextInput.screen';
 export {default as PullToRefresh} from './PullToRefresh.screen';
+export {default as SectionList} from './SectionList.screen';
