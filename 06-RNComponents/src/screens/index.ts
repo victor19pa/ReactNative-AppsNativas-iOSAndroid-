@@ -8,3 +8,4 @@ export {default as PullToRefresh} from './PullToRefresh.screen';
 export {default as SectionList} from './SectionList.screen';
 export {default as CustomModal} from './CustomModal.screen';
 export {default as SlidesScreen} from './Slides.screen';
+export {default as InfiniteScrollScreen} from './InfiniteScroll.screen';
