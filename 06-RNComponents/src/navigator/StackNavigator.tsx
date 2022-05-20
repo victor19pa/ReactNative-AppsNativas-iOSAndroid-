@@ -1,6 +1,6 @@
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
-import { AlertScreen, Animation101, Animation102, CustomModal, Home, PullToRefresh, SectionList, Switch, TextInput } from '../screens';
+import { AlertScreen, Animation101, Animation102, CustomModal, Home, PullToRefresh, SectionList, SlidesScreen, Switch, TextInput } from '../screens';
 
 const Stack = createStackNavigator();
 
@@ -24,6 +24,7 @@ const StackNavigator = () => {
       <Stack.Screen name="PullToRefreshScreen" component={PullToRefresh} />
       <Stack.Screen name="CustomSectionListScreen" component={SectionList} />
       <Stack.Screen name="CustomModalScreen" component={CustomModal} />
+      <Stack.Screen name="SlidesScreen" component={SlidesScreen} />
     </Stack.Navigator>
   );
 }

@@ -7,3 +7,4 @@ export {default as TextInput} from './TextInput.screen';
 export {default as PullToRefresh} from './PullToRefresh.screen';
 export {default as SectionList} from './SectionList.screen';
 export {default as CustomModal} from './CustomModal.screen';
+export {default as SlidesScreen} from './Slides.screen';
