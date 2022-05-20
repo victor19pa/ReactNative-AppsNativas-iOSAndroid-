@@ -2,10 +2,10 @@ import React, { useState } from 'react'
 import { RefreshControl, ScrollView, Text, View } from 'react-native'
 import { HeaderTitle } from '../components/atoms'
 import { styles } from '../theme/appTheme';
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
+// import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 const PullToRefresh = () => {
-  const { top } = useSafeAreaInsets();
+  // const { top } = useSafeAreaInsets();
   const [refreshing, setRefreshing] = useState(false)
   const [data, setData] = useState<string>('');
 
@@ -20,7 +20,7 @@ const PullToRefresh = () => {
   }
   return (
     <ScrollView
-      style={{ marginTop: refreshing ? top : 0 }}
+      style={{ marginTop: refreshing ? 20 : 0 }}
       refreshControl={
         <RefreshControl
           refreshing={refreshing}
