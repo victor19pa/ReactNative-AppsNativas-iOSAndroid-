@@ -1,10 +1,11 @@
-import React from 'react'
-import { Dimensions, Image, ImageSourcePropType, SafeAreaView, Text, View } from 'react-native';
+import { StackScreenProps } from '@react-navigation/stack';
+import React, { useRef, useState } from 'react'
+import { Animated, Dimensions, Image, ImageSourcePropType, SafeAreaView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import Carousel, { Pagination } from 'react-native-snap-carousel';
-import HeaderTitle from '../components/atoms/HeaderTitle.atom';
-import { useState } from 'react';
+import Icon from 'react-native-vector-icons/Ionicons';
+import useFade from '../hooks/useAnimation';
 
-const { width: screenWidth, height: screenHeight } = Dimensions.get('window')
+const { width: screenWidth } = Dimensions.get('window')
 interface Slide {
   title: string;
   desc: string;
@@ -29,15 +30,43 @@ const items: Slide[] = [
   },
 ]
 
-const Slides = () => {
-  const [activeIndex, setActiveIndex] = useState(0)
+interface Props extends StackScreenProps<any, any> { };
+
+const Slides = ({ navigation }: Props) => {
+  const [activeIndex, setActiveIndex] = useState(0);
+  // const [isVisible, setIsVisible] = useState(false)
+  const { opacityRef, fadeIn } = useFade();
+  const isVisible = useRef(false);
+
   const renderItem = (item: Slide) => {
     return (
-      <View style={{ flex: 1, backgroundColor: 'white', borderRadius: 5, padding: 40, justifyContent: 'center' }}>
-        <Image source={item.img} style={{ width: 350, height: 400, resizeMode: 'center' }} />
+      <View style={{
+        flex: 1,
+        backgroundColor: "white",
+        borderRadius: 5,
+        padding: 40,
+        justifyContent: 'center'
+      }}>
+        <Image
+          source={item.img}
+          style={{
+            width: 350,
+            height: 400,
+            resizeMode: 'center'
+          }}
+        />
+
+        <Text style={{
+          ...stylesSlides.title,
+        }}>{item.title}</Text>
+
+        <Text style={{
+          ...stylesSlides.subTitle
+        }}>{item.desc}</Text>
       </View>
     )
   }
+
   return (
     <SafeAreaView
       style={{ flex: 1, paddingTop: 50 }}
@@ -47,24 +76,81 @@ const Slides = () => {
         data={items}
         renderItem={({ item }) => renderItem(item)}
         sliderWidth={screenWidth}
-        itemWidth={screenHeight}
+        itemWidth={screenWidth}
         layout="default"
         onSnapToItem={(index) => {
           setActiveIndex(index);
+          if (index === 2) {
+            // setIsVisible(true)
+            isVisible.current = true;
+            fadeIn();
+          }
         }}
       />
-      <Pagination
-        dotsLength={items.length}
-        activeDotIndex={activeIndex}
-        dotStyle={{
-          width: 10,
-          height: 10,
-          borderRadius: 10,
-          backgroundColor: '#5856D6',
-        }}
-      />
+      <View style={{
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        marginHorizontal: 20
+      }}>
+        <Pagination
+          dotsLength={items.length}
+          activeDotIndex={activeIndex}
+          dotStyle={{
+            width: 10,
+            height: 10,
+            borderRadius: 10,
+            backgroundColor: '#5856D6',
+
+          }}
+        />
+
+        <Animated.View
+          style={{
+            opacity: opacityRef
+          }}
+        >
+          <TouchableOpacity
+            style={{
+              flexDirection: 'row',
+              backgroundColor: '#5856D6',
+              width: 140,
+              height: 50,
+              borderRadius: 10,
+              justifyContent: 'center',
+              alignItems: 'center'
+            }}
+            activeOpacity={0.9}
+            onPress={() => {
+              if (isVisible.current) {
+                navigation.navigate('Home')
+              }
+            }}
+          >
+            <Text style={{ fontSize: 25, color: 'white', }}>Entrar</Text>
+            <Icon
+              name='chevron-forward-outline'
+              size={28}
+              color='white'
+            />
+          </TouchableOpacity>
+        </Animated.View>
+
+      </View>
+
     </SafeAreaView>
   )
 }
+const stylesSlides = StyleSheet.create({
+  title: {
+    fontSize: 30,
+    fontWeight: 'bold',
+    color: '#5856D6'
+  },
+  subTitle: {
+    fontSize: 16
+  }
+
+});
 
 export default Slides
