@@ -1,6 +1,18 @@
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
-import { AlertScreen, Animation101, Animation102, CustomModal, Home, InfiniteScrollScreen, PullToRefresh, SectionList, SlidesScreen, Switch, TextInput } from '../screens';
+import {
+  AlertScreen,
+  Animation101,
+  Animation102,
+  CustomModal,
+  Home,
+  InfiniteScrollScreen,
+  PullToRefresh,
+  SectionList,
+  SlidesScreen,
+  Switch,
+  TextInput
+} from '../screens';
 
 const Stack = createStackNavigator();
 
@@ -11,7 +23,7 @@ const StackNavigator = () => {
       screenOptions={{
         headerShown: false,
         cardStyle: {
-          backgroundColor: 'white'
+          // backgroundColor: 'white'
         }
       }}
     >

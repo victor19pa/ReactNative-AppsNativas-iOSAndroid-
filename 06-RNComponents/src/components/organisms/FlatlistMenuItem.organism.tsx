@@ -1,4 +1,4 @@
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation, useTheme } from '@react-navigation/native';
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
@@ -7,11 +7,12 @@ import { MenuItem } from '../../types/appInterfaces';
 
 
 interface Props {
-  menuItem: MenuItem;
+  menuItem: any;
 }
 
 const FlatlistMenuItem = ({ menuItem }: Props) => {
   const navigation = useNavigation();
+  const { colors } = useTheme();
 
   return (
     <TouchableOpacity
@@ -24,7 +25,7 @@ const FlatlistMenuItem = ({ menuItem }: Props) => {
           color='gray'
           size={30}
         />
-        <Text style={styles.itemTxt}>
+        <Text style={[styles.itemTxt, { color: colors.text }]}>
           {menuItem.name}
         </Text>
         <View style={styles.forwardContainer} />
