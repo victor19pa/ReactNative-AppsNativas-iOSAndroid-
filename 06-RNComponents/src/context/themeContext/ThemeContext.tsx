@@ -14,6 +14,9 @@ export const ThemeProvider = ({ children }: any) => {
   const [theme, dispatch] = useReducer(themeReducer, lightTheme) // TODO initial state
 
   const setDarkTheme = () => {
+    dispatch({
+      type: 'dark_theme'
+    })
     console.log('set dark theme');
 
   }
