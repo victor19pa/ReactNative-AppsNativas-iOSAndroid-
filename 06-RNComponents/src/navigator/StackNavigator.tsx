@@ -4,6 +4,7 @@ import {
   AlertScreen,
   Animation101,
   Animation102,
+  ChangeThemeScreen,
   CustomModal,
   Home,
   InfiniteScrollScreen,
@@ -38,6 +39,7 @@ const StackNavigator = () => {
       <Stack.Screen name="CustomModalScreen" component={CustomModal} />
       <Stack.Screen name="SlidesScreen" component={SlidesScreen} />
       <Stack.Screen name="InfiniteScrollScreen" component={InfiniteScrollScreen} />
+      <Stack.Screen name="ChangeThemeScreen" component={ChangeThemeScreen} />
     </Stack.Navigator>
   );
 }

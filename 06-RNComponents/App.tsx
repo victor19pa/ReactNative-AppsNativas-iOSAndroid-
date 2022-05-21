@@ -12,7 +12,7 @@ LogBox.ignoreLogs([
 const customTheme: Theme = {
   dark: true,
   colors: {
-    ...DarkTheme.colors,
+    ...DefaultTheme.colors,
     // primary: '#',
     // background: '#',
     // card: '#',
