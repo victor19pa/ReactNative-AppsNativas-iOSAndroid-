@@ -34,7 +34,7 @@ export const darkTheme: ThemeState = {
     border: 'orange',
     notification: 'teal',
   },
-  dividerColor: 'rgba(0,0,0,0.7)'
+  dividerColor: 'rgba(255,255,255,0.6)'
 }
 export const themeReducer = (state: ThemeState, action: ThemeAction): ThemeState => {
 

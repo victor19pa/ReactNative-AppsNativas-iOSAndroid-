@@ -1,9 +1,10 @@
 import { StackScreenProps } from '@react-navigation/stack';
-import React, { useRef, useState } from 'react'
+import React, { useContext, useRef, useState } from 'react'
 import { Animated, Dimensions, Image, ImageSourcePropType, SafeAreaView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import Carousel, { Pagination } from 'react-native-snap-carousel';
 import Icon from 'react-native-vector-icons/Ionicons';
 import useFade from '../hooks/useAnimation';
+import { ThemeContext } from '../context/themeContext/ThemeContext';
 
 const { width: screenWidth } = Dimensions.get('window')
 interface Slide {
@@ -33,6 +34,8 @@ const items: Slide[] = [
 interface Props extends StackScreenProps<any, any> { };
 
 const Slides = ({ navigation }: Props) => {
+  const { theme: { colors, dividerColor } } = useContext(ThemeContext)
+
   const [activeIndex, setActiveIndex] = useState(0);
   // const [isVisible, setIsVisible] = useState(false)
   const { opacityRef, fadeIn } = useFade();
@@ -42,7 +45,7 @@ const Slides = ({ navigation }: Props) => {
     return (
       <View style={{
         flex: 1,
-        backgroundColor: "white",
+        backgroundColor: colors.background,
         borderRadius: 5,
         padding: 40,
         justifyContent: 'center'
@@ -58,10 +61,12 @@ const Slides = ({ navigation }: Props) => {
 
         <Text style={{
           ...stylesSlides.title,
+          color: colors.primary
         }}>{item.title}</Text>
 
         <Text style={{
-          ...stylesSlides.subTitle
+          ...stylesSlides.subTitle,
+          color: colors.text
         }}>{item.desc}</Text>
       </View>
     )
@@ -100,7 +105,7 @@ const Slides = ({ navigation }: Props) => {
             width: 10,
             height: 10,
             borderRadius: 10,
-            backgroundColor: '#5856D6',
+            backgroundColor: colors.primary,
 
           }}
         />
@@ -113,7 +118,7 @@ const Slides = ({ navigation }: Props) => {
           <TouchableOpacity
             style={{
               flexDirection: 'row',
-              backgroundColor: '#5856D6',
+              backgroundColor: colors.primary,
               width: 140,
               height: 50,
               borderRadius: 10,
@@ -127,7 +132,12 @@ const Slides = ({ navigation }: Props) => {
               }
             }}
           >
-            <Text style={{ fontSize: 25, color: 'white', }}>Entrar</Text>
+            <Text style={{
+              fontSize: 25,
+              color: colors.text,
+            }}>
+              Entrar
+            </Text>
             <Icon
               name='chevron-forward-outline'
               size={28}
@@ -145,7 +155,6 @@ const stylesSlides = StyleSheet.create({
   title: {
     fontSize: 30,
     fontWeight: 'bold',
-    color: '#5856D6'
   },
   subTitle: {
     fontSize: 16

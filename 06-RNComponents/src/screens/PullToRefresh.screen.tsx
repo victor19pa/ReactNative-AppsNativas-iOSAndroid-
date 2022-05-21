@@ -1,6 +1,7 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { RefreshControl, ScrollView, Text, View } from 'react-native'
 import { HeaderTitle } from '../components/atoms'
+import { ThemeContext } from '../context/themeContext/ThemeContext';
 import { styles } from '../theme/appTheme';
 // import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
@@ -8,6 +9,8 @@ const PullToRefresh = () => {
   // const { top } = useSafeAreaInsets();
   const [refreshing, setRefreshing] = useState(false)
   const [data, setData] = useState<string>('');
+  const { theme: { colors, dark }, } = useContext(ThemeContext)
+
 
   const onRefresh = () => {
     setRefreshing(true);
@@ -26,11 +29,11 @@ const PullToRefresh = () => {
           refreshing={refreshing}
           onRefresh={onRefresh}
           progressViewOffset={10}
-          progressBackgroundColor="#5856D6"
-          colors={['white', 'red', 'orange']}
+          progressBackgroundColor={colors.primary}
+          colors={[colors.text]}
           //ios
-          style={{ backgroundColor: '#5856D6' }}
-          tintColor="white"
+          style={{ backgroundColor: colors.primary }}
+          tintColor={dark ? 'white' : 'black'}
           title='Refreshing'
           titleColor='white'
         />
@@ -39,7 +42,7 @@ const PullToRefresh = () => {
       <View style={styles.globalMargin}>
         <HeaderTitle title={'Pull to refresh'} />
         {
-          data && <Text style={{ color: 'black' }}>{data}</Text>
+          data ? <Text style={{ color: colors.primary }}>{data}</Text> : null
         }
 
       </View>
