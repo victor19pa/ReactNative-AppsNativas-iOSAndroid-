@@ -9,12 +9,12 @@ export interface ThemeState extends Theme {
   dividerColor: string;
 }
 
-const lightTheme: ThemeState = {
+export const lightTheme: ThemeState = {
   currentTheme: 'light',
   dark: false,
   colors: {
     primary: 'red',
-    background: 'blue',
+    background: '#fff',
     card: 'green',
     text: 'pink',
     border: 'orange',
